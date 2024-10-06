@@ -5,7 +5,7 @@ dap.adapters.codelldb = {
   executable = {
     -- CHANGE THIS to your path!
     -- command = "/absolute/path/to/codelldb/extension/adapter/codelldb",
-    command = "C:/Users/xiaoCRQ/AppData/Local/nvim-data/mason/packages/codelldb/extension/adapter/codelldb",
+    command = "~/AppData/Local/nvim-data/mason/packages/codelldb/extension/adapter/codelldb",
     args = { "--port", "${port}" },
 
     -- On windows you may have to uncomment this:
@@ -22,9 +22,15 @@ dap.configurations.cpp = {
 
     -- 获取可执行文件路径
     program = function()
+      local output
+      if file_output then
+        output = "/output/"
+      else
+        output = "/"
+      end
       -- 构建可执行文件的路径
       -- return vim.fn.expand("%:p:h") .. "/output/" .. vim.fn.fnamemodify(vim.fn.expand("%:p"), ":t")
-      return vim.fn.expand("%:p:h") .. "/output/" .. vim.fn.fnamemodify(vim.fn.expand("%:p"), ":t:r")
+      return vim.fn.expand("%:p:h") .. output .. vim.fn.fnamemodify(vim.fn.expand("%:p"), ":t:r")
       -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
 

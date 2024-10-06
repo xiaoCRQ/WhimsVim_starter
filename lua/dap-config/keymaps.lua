@@ -26,7 +26,7 @@ map( -- 关闭调试
 map("n", "<F5>", ":lua debug_by_filetype()<CR>", opt)
 map("n", "<m-F5>", ":lua debug_by_filetype()<CR>", opt)
 
--- 设置断点
+-- 设置断.点
 map("n", "<F6>", ":lua require'dap'.toggle_breakpoint()<CR>", opt) -- 切换断点状态
 map("n", "<S-F6>", ":lua require'dap'.clear_breakpoints()<CR>", opt) -- 清除所有断点
 --  stepOver, stepOut, stepInto

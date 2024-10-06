@@ -2,6 +2,7 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+file_output = true -- 是否输出output
 -- 显示相对行号
 vim.opt.relativenumber = false
 -- utf8

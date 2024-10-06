@@ -10,10 +10,10 @@ return {
     require("alpha.term")
 
     dashboard.section.terminal.command =
-      "chafa -c full --fg-only --symbols braille --align=mid C:/Users/xiaoCRQ/AppData/Local/nvim/lua/logo/v-3.gif"
+      "powershell chafa -c full --fg-only --symbols braille --align=mid $env:LOCALAPPDATA/nvim/lua/logo/v-3.gif"
 
-    dashboard.section.terminal.width = 80
-    dashboard.section.terminal.height = 24
+    dashboard.section.terminal.width = 70
+    dashboard.section.terminal.height = 20
     dashboard.section.terminal.opts.redraw = true
     dashboard.section.terminal.opts.window_config.zindex = 1
 
@@ -124,8 +124,10 @@ return {
           vim.cmd("AlphaRedraw")
           vim.notify = require("notify")
           local hour = tonumber(os.date("%H"))
-          if hour < 12 then -- 凌晨
+          if hour < 9 then -- 早上
             vim.notify("Good Morning —— 早上好！")
+          elseif hour < 14 then -- 上午
+            vim.notify("Good Morning —— 上午好！")
           elseif hour < 14 then -- 中午
             vim.notify("Good Noon —— 中午好！")
           elseif hour < 18 then -- 下午

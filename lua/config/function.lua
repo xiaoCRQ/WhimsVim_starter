@@ -87,25 +87,65 @@ end
 -- //———————————— 调试函数 ————————————//
 local isMarkdownPreviewActive = false -- 判断markdown是否打开
 
+function file_output_switch()
+  if file_output == false then
+    print("-已开启output输出-")
+    file_output = true
+  elseif file_output == true then
+    print("-已关闭output输出-")
+    file_output = false
+  else
+    print("-参数错误-")
+  end
+end
+
 function c_debug(filetype)
-  print("开始编译")
+  print("开始调试")
   vim.cmd("w!") -- 保存文件
-  -- 获取当前文件的完整路径
-  local file_path = '"' .. vim.fn.expand("%:p") .. '"'
-  -- 获取输出文件名
-  local file_name = '"' .. "output\\" .. vim.fn.expand("%:t:r") .. ".exe" .. '"'
   -- 构建要执行的命令字符串
   local cmd
+  local output
+  if file_output then
+    output = "\\output\\"
+    -- 获取输出文件夹路径
+    local output_dir = vim.fn.expand("%:p:h") .. "\\output"
+    -- 检查 output 文件夹是否存在，如果不存在则创建
+    if vim.fn.isdirectory(output_dir) == 0 then
+      vim.fn.mkdir(output_dir, "p")
+      print("已创建输出文件夹")
+    end
+  else
+    output = "\\"
+  end
   if filetype == "c" then
-    cmd = "gcc " .. file_path .. " -o " .. file_name
+    cmd = "gcc "
   elseif filetype == "cpp" then
-    cmd = "g++ " .. file_path .. " -o " .. file_name
+    cmd = "g++ "
   else
     print("错误!")
   end
+  cmd = cmd
+    .. '"'
+    .. vim.fn.expand("%:p")
+    .. '"'
+    .. " -o "
+    .. '"'
+    .. vim.fn.expand("%:p:h")
+    .. output
+    .. vim.fn.expand("%:t:r")
+    .. ".exe"
+    .. '"'
+
+  -- print(cmd)
   -- 执行异步作业
-  vim.fn.jobstart(cmd)
-  require("dap").continue()
+  local job_id = vim.fn.jobstart(cmd, {
+    on_exit = function(job_id, return_val, event)
+      if return_val == 0 then
+        print("编译完成")
+        require("dap").continue()
+      end
+    end,
+  })
 end
 
 function html_debug(filetype)
