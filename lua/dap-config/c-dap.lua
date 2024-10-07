@@ -5,7 +5,8 @@ dap.adapters.codelldb = {
   executable = {
     -- CHANGE THIS to your path!
     -- command = "/absolute/path/to/codelldb/extension/adapter/codelldb",
-    command = "~/AppData/Local/nvim-data/mason/packages/codelldb/extension/adapter/codelldb",
+    -- vim.fn.stdpath("data") 为nvim-data路径
+    command = vim.fn.stdpath("data") .. "\\mason\\packages\\codelldb\\extension\\adapter\\codelldb",
     args = { "--port", "${port}" },
 
     -- On windows you may have to uncomment this:
