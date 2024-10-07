@@ -1,4 +1,4 @@
-# 💤 LazyVim
+# 🌟 WhimsVim
 
-A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
-Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
+A starter template for [WhimsVim](https://github.com/xiaoCRQ/WhimsVim).
+Refer to the [documentation](https://github.com/xiaoCRQ/WhimsVim/wiki) to get started.
