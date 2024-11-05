@@ -6,9 +6,10 @@ require("config.lazy")
 require("config.function")
 require("dap-config.init")
 require("lsp.init")
+
 -- require("theme.init")
 
-vim.cmd("colorscheme catppuccin-mocha") -- 设置默认主题
+-- vim.cmd("colorscheme catppuccin-mocha") -- 设置默认主题
 vim.cmd("colorscheme tokyonight") -- 设置默认主题
 
 -- vim.opt.shell = "powershell.exe"
