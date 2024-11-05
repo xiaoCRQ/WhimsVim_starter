@@ -36,13 +36,13 @@ map("n", "<F7>", ":lua require'dap'.step_into()<CR>", opt) -- 进入当前函数
 -- 弹窗
 map("n", "<S-F8>", ":lua require'dapui'.eval()<CR>", opt) -- 在当前光标位置显示变量的值
 -- 调整dap窗口布局
-map("n", "<F3>", ":lua window_dap()<CR>", opt)
-map("n", "<F3>1", ":lua window_conti(1)<CR>", opt)
-map("n", "<F3>2", ":lua window_conti(2)<CR>", opt)
-map("n", "<F3>3", ":lua window_conti(3)<CR>", opt)
-map("n", "<F3>4", ":lua window_conti(4)<CR>", opt)
-map("n", "<F3>0", ":lua dap_default()<CR>", opt)
-map("n", "<F3>h", ":lua window_dap_help()<CR>", opt)
+-- map("n", "<F3>", ":lua window_dap()<CR>", opt)
+-- map("n", "<F3>1", ":lua window_conti(1)<CR>", opt)
+-- map("n", "<F3>2", ":lua window_conti(2)<CR>", opt)
+-- map("n", "<F3>3", ":lua window_conti(3)<CR>", opt)
+-- map("n", "<F3>4", ":lua window_conti(4)<CR>", opt)
+-- map("n", "<F3>0", ":lua dap_default()<CR>", opt)
+-- map("n", "<F3>h", ":lua window_dap_help()<CR>", opt)
 map("n", "<m-->", ":lua window_dap_add('-')<CR>", opt)
 map("n", "<m-=>", ":lua window_dap_add('+')<CR>", opt)
 

@@ -43,7 +43,7 @@ end
 local font_size_temp = 14
 
 function fontsize(font_size)
-  if font_size >= 1 and font_size <= 20 then
+  if font_size >= 1 and font_size <= 50 then
     local str = "当前字体大小: " .. font_size .. " px"
     -- vim.o.guifont = "CaskaydiaCove Nerd Font:h" .. font_size .. ":b"
     vim.o.guifont = "CaskaydiaCove Nerd Font:h" .. font_size
@@ -52,7 +52,7 @@ function fontsize(font_size)
     font_size_temp = 1
     print("字体过小")
   elseif font_size > 20 then
-    font_size_temp = 20
+    font_size_temp = 50
     print("字体过大")
   end
 end
@@ -282,3 +282,8 @@ function window_dap_add(cmd)
 end
 
 -- //———————————— 调试函数 ————————————//
+
+function test_user()
+  local command = vim.fn.stdpath("data") .. "\\mason\\packages\\codelldb\\extension\\adapter\\codelldb"
+  print(command)
+end
