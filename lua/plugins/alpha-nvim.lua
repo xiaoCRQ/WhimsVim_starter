@@ -7,10 +7,12 @@ return {
   opts = function()
     local dashboard = require("alpha.themes.dashboard")
     local alpha = require("alpha")
+    local path_config = vim.fn.stdpath("config")
     require("alpha.term")
 
-    dashboard.section.terminal.command =
-      "powershell chafa -c full --fg-only --symbols braille --align=mid $env:LOCALAPPDATA/nvim/lua/logo/v-3.gif"
+    dashboard.section.terminal.command = "chafa -c full --fg-only --symbols braille --align=mid "
+      .. path_config
+      .. "/lua/logo/v-3.gif"
 
     dashboard.section.terminal.width = 70
     dashboard.section.terminal.height = 20
